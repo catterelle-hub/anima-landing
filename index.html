@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mirabae · Anima — Your Gut-Brain Alignment</title>
+<meta name="description" content="Anima by Mirabae. A kefir fiber powder designed for the gut-brain axis. Reserve your box before public launch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #C9A96E;
+  --gold-light: #E2C99A;
+  --gold-dark: #A8864A;
+  --cream: #F6F0E7;
+  --warm-white: #FDFAF5;
+  --espresso: #1A1208;
+  --espresso-mid: #2B1E0D;
+  --espresso-dark: #3D2A14;
+  --text-dark: #1C1816;
+  --text-mid: #5A4E44;
+  --text-light: #9A8E84;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  background: rgba(253,250,245,0.95);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease;
+}
+
+nav.scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 5px;
+  color: var(--espresso);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.nav-logo span {
+  display: block;
+  font-size: 7px;
+  letter-spacing: 3px;
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--espresso); }
+
+.nav-cta {
+  background: var(--espresso);
+  color: var(--gold) !important;
+  padding: 10px 24px;
+  font-size: 9px !important;
+  letter-spacing: 3px !important;
+  text-decoration: none;
+  transition: opacity 0.2s !important;
+}
+
+.nav-cta:hover { opacity: 0.85; color: var(--gold) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+.hero-left {
+  background: linear-gradient(160deg, var(--espresso) 0%, var(--espresso-mid) 60%, var(--espresso-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-product {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1;
+  padding: 80px 40px;
+}
+
+.hero-product img.box-img {
+  height: 520px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6));
+}
+
+.hero-product img.sachet-img {
+  height: 320px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: -20px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.hero-founder-badge {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--warm-white);
+  border-radius: 50%;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.hero-founder-badge .stars {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.hero-founder-badge .quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--espresso);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.hero-founder-badge .name {
+  font-size: 7px;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.hero-right {
+  background: var(--warm-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 72px;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px;
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.15;
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+.hero-subhead {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.85;
+  max-width: 420px;
+  margin-bottom: 32px;
+}
+
+.hero-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 28px;
+}
+
+.hero-product-name {
+  margin-bottom: 32px;
+}
+
+.hero-product-name .brand {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.hero-product-name .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  color: var(--espresso);
+  letter-spacing: 3px;
+  font-weight: 400;
+  display: block;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.hero-product-name .sub {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.hero-benefit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+.benefit-tag {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  font-weight: 500;
+  border: 1.5px solid rgba(201,169,110,0.4);
+  padding: 7px 14px;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.benefit-tag:hover {
+  border-color: var(--gold);
+  background: rgba(201,169,110,0.06);
+  color: var(--gold-dark);
+}
+
+.hero-cta-primary {
+  display: block;
+  max-width: 280px;
+  background: var(--espresso);
+  color: var(--gold);
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 16px 32px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-bottom: 16px;
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(26,18,8,0.25);
+}
+
+.hero-cta-secondary {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: color 0.2s;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.hero-cta-secondary:hover { color: var(--gold-dark); }
+
+.hero-trust {
+  position: absolute;
+  bottom: 32px;
+  left: 72px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9px;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.hero-trust::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* FDA disclaimer */
+.fda-disclaimer {
+  font-size: 9px;
+  color: var(--text-light);
+  line-height: 1.6;
+  max-width: 420px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+/* ─── SCIENCE STRIP ─── */
+.science-strip {
+  background: var(--espresso);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1;
+  max-width: 220px;
+}
+
+.stat-item + .stat-item {
+  border-left: 1px solid rgba(201,169,110,0.2);
+  padding-left: 48px;
+  margin-left: 48px;
+}
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 400;
+  line-height: 1;
+  min-width: 48px;
+}
+
+.stat-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(201,169,110,0.55);
+  font-weight: 300;
+  line-height: 1.5;
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+
+/* ─── SCIENCE SECTION ─── */
+.science-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+
+.science-image {
+  background: linear-gradient(160deg, #F2EBE0, #D4C0A4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+.science-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.science-image-placeholder {
+  text-align: center;
+  color: var(--text-light);
+}
+
+.science-image-placeholder p {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.science-copy {
+  background: var(--warm-white);
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-eyebrow {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.science-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.science-h2 em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+.science-body {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.source-badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border-left: 3px solid var(--gold);
+  padding: 16px 20px;
+  margin-top: 32px;
+}
+
+.source-badge p {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text-mid);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.source-badge span {
+  font-size: 9px;
+  color: var(--text-light);
+  display: block;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+
+/* ─── THE SHIFT SECTION ─── */
+.shift-section {
+  background: var(--cream);
+  padding: 100px 80px;
+}
+
+.shift-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.shift-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--espresso);
+  margin-top: 12px;
+  line-height: 1.15;
+}
+
+.shift-h2 em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+.shift-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.shift-before {
+  background: #F0EDE8;
+  padding: 48px 40px;
+}
+
+.shift-after {
+  background: var(--espresso);
+  padding: 48px 40px;
+}
+
+.shift-col-label {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.shift-before .shift-col-label { color: var(--text-light); }
+.shift-after .shift-col-label { color: var(--gold); }
+
+.shift-divider {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--gold);
+}
+
+.shift-item {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.shift-item:last-child { border-bottom: none; }
+
+.shift-before .shift-item { color: var(--text-mid); }
+.shift-after .shift-item { color: rgba(246,240,231,0.65); }
+.shift-after .shift-item.highlight {
+  color: var(--cream);
+  font-weight: 400;
+}
+
+.shift-em {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+.shift-after .shift-em {
+  color: var(--gold);
+}
+
+/* Transformation photos */
+.transformation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 60px;
+}
+
+.transformation-panel {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+
+.transformation-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.transformation-panel:hover img {
+  transform: scale(1.03);
+}
+
+.transformation-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 16px 16px;
+  background: linear-gradient(transparent, rgba(26,18,8,0.7));
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  background: var(--cream);
+  padding: 100px 80px;
+  text-align: center;
+}
+
+.cta-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--espresso);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.cta-h2 em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+.cta-subhead {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-mid);
+  margin-bottom: 56px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.cta-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 880px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Card 1 - Secondary */
+.cta-card-secondary {
+  background: white;
+  border: 1px solid rgba(201,169,110,0.25);
+  padding: 48px 40px;
+  text-align: left;
+}
+
+.card-badge {
+  display: inline-block;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.card-badge.neutral {
+  background: var(--cream);
+  color: var(--text-mid);
+}
+
+.card-badge.gold {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--espresso);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.cta-card-primary .card-title {
+  color: var(--cream);
+}
+
+.card-body {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.cta-card-primary .card-body {
+  color: rgba(246,240,231,0.65);
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-input {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid var(--gold);
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.card-input:focus {
+  border-bottom-color: var(--gold-dark);
+}
+
+.card-input::placeholder {
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+.cta-card-primary .card-input {
+  color: var(--cream);
+  border-bottom-color: rgba(201,169,110,0.4);
+  background: transparent;
+}
+
+.cta-card-primary .card-input::placeholder {
+  color: rgba(201,169,110,0.4);
+}
+
+.cta-card-primary .card-input:focus {
+  border-bottom-color: var(--gold);
+}
+
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-dark);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(201,169,110,0.06);
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  border: none;
+  color: var(--espresso);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201,169,110,0.3);
+}
+
+/* Card 2 - Primary */
+.cta-card-primary {
+  background: var(--espresso);
+  padding: 48px 40px;
+  text-align: left;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent 10%, var(--gold), transparent 90%) 1;
+  box-shadow: 0 20px 60px rgba(26,18,8,0.3), 0 4px 16px rgba(26,18,8,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cta-card-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 72px rgba(26,18,8,0.35), 0 8px 24px rgba(26,18,8,0.25);
+}
+
+.card-fine-print {
+  font-size: 9px;
+  color: rgba(201,169,110,0.45);
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.success-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold);
+  text-align: center;
+  padding: 32px 0;
+  display: none;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--espresso);
+  padding: 48px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.footer-tagline {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: rgba(201,169,110,0.35);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  font-size: 9px;
+  color: rgba(201,169,110,0.25);
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  nav {
+    padding: 16px 24px;
+  }
+
+  .nav-links { display: none; }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    min-height: 60vw;
+    padding: 40px 20px;
+  }
+
+  .hero-product img.box-img { height: 260px; }
+  .hero-product img.sachet-img { height: 160px; }
+
+  .hero-founder-badge {
+    width: 80px;
+    height: 80px;
+    bottom: 20px;
+  }
+
+  .hero-founder-badge .quote { font-size: 9px; }
+  .hero-founder-badge .name { font-size: 6px; }
+
+  .hero-right {
+    padding: 48px 28px 64px;
+  }
+
+  .hero-h1 { font-size: 36px; }
+
+  .hero-trust { left: 28px; bottom: 24px; }
+
+  .science-strip {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 24px;
+  }
+
+  .stat-item {
+    width: 50%;
+    max-width: none;
+    padding: 16px 12px;
+  }
+
+  .stat-item + .stat-item {
+    border-left: none;
+    padding-left: 12px;
+    margin-left: 0;
+  }
+
+  .stat-item:nth-child(2) { border-left: 1px solid rgba(201,169,110,0.2); }
+  .stat-item:nth-child(3) { border-top: 1px solid rgba(201,169,110,0.2); }
+  .stat-item:nth-child(4) { border-top: 1px solid rgba(201,169,110,0.2); border-left: 1px solid rgba(201,169,110,0.2); padding-left: 12px; }
+
+  .science-section {
+    grid-template-columns: 1fr;
+  }
+
+  .science-image { min-height: 320px; }
+  .science-copy { padding: 48px 28px; }
+  .science-h2 { font-size: 30px; }
+
+  .shift-section { padding: 60px 24px; }
+  .shift-h2 { font-size: 32px; }
+
+  .shift-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shift-divider { display: none; }
+  .shift-before { order: 1; }
+  .shift-after { order: 2; }
+
+  .transformation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cta-section { padding: 60px 24px; }
+  .cta-h2 { font-size: 34px; }
+
+  .cta-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card-primary { order: -1; }
+
+  footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .footer-copy { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    Mirabae
+    <span>The future of beauty is neural.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#science">The Science</a></li>
+    <li><a href="#shift">The Shift</a></li>
+    <li><a href="#anima">Anima</a></li>
+    <li><a href="#reserve" class="nav-cta">Reserve Your Box</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="anima">
+  <div class="hero-left">
+    <div class="hero-product">
+      <img class="box-img"
+           src="images/anima_box_hero.png"
+           alt="Anima Kefir Fiber Powder Box"
+           onerror="this.style.display='none'">
+      <img class="sachet-img"
+           src="images/anima_sachet_hero.png"
+           alt="Anima Sachet"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="hero-founder-badge">
+      <div class="stars">♦ ♥ ♦</div>
+      <div class="quote">I made this for myself first.</div>
+      <div class="name">Anjelika<br>Founder</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="hero-eyebrow">New · Limited Pre-Launch</p>
+    <h1 class="hero-h1">You're not broken.<br>You're overwhelmed<br>by <em>signals.</em></h1>
+    <p class="hero-subhead">Your gut sends 500 million signals to your brain every day. When the microbiome is disrupted, those signals become noise — food cravings, mood swings, brain fog, inflammation. Anima is designed to restore the conversation.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-product-name">
+      <span class="brand">Mirabae</span>
+      <span class="name">Anima</span>
+      <span class="sub">Kefir Fiber Powder · 30 Daily Sachets</span>
+    </div>
+    <div class="hero-benefit-tags">
+      <span class="benefit-tag">Clearer Skin</span>
+      <span class="benefit-tag">Less Bloating</span>
+      <span class="benefit-tag">Quieter Food Noise</span>
+      <span class="benefit-tag">Lower Inflammation</span>
+      <span class="benefit-tag">Better Sleep</span>
+      <span class="benefit-tag">Healthy Weight</span>
+    </div>
+    <a href="#reserve" class="hero-cta-primary">Reserve Your First Box</a>
+    <a href="#science" class="hero-cta-secondary">Explore the science →</a>
+    <p class="fda-disclaimer">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+    <p class="hero-trust">Based on University of Nottingham research, 2026</p>
+  </div>
+</section>
+
+<!-- SCIENCE STRIP -->
+<div class="science-strip">
+  <div class="stat-item">
+    <div class="stat-number">500M</div>
+    <div class="stat-label">Neural signals from gut to brain daily</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">8wk</div>
+    <div class="stat-label">Study duration · University of Nottingham 2026</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">39T</div>
+    <div class="stat-label">Microbial cells in the human gut</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">1</div>
+    <div class="stat-label">Daily sachet. One ritual. Morning or evening.</div>
+  </div>
+</div>
+
+<!-- SCIENCE SECTION -->
+<section class="science-section" id="science">
+  <div class="science-image">
+    <!-- Replace with morning ritual photography when ready -->
+    <div class="science-image-placeholder">
+      <p>Morning ritual photography</p>
+    </div>
+  </div>
+  <div class="science-copy">
+    <p class="section-eyebrow">The Science</p>
+    <h2 class="science-h2">The gut-brain axis is the <em>missing link</em> in your wellness stack.</h2>
+    <p class="science-body">A landmark 2026 study from the University of Nottingham found that kefir-derived fiber directly modulates the gut microbiome — reducing systemic inflammation, improving neurotransmitter signalling, and supporting the vagus nerve pathway responsible for mood, appetite, and cognitive clarity.</p>
+    <p class="science-body">Anima is the first consumer product built directly on this research. Each sachet delivers a precisely calibrated fiber matrix designed to work with your existing microbiome, not against it.</p>
+    <div class="source-badge">
+      <div>
+        <p>University of Nottingham · February 2026</p>
+        <span>Peer-reviewed · Gut-Brain Axis Research Programme</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SHIFT SECTION -->
+<section class="shift-section" id="shift">
+  <div class="shift-header">
+    <p class="section-eyebrow">The Shift</p>
+    <h2 class="shift-h2">From noise to <em>alignment.</em></h2>
+  </div>
+
+  <div class="shift-grid">
+    <div class="shift-before">
+      <div class="shift-col-label">Before Anima</div>
+      <div class="shift-item"><span class="shift-em">—</span> Inflammation you can't trace</div>
+      <div class="shift-item"><span class="shift-em">—</span> Food noise that won't quiet down</div>
+      <div class="shift-item"><span class="shift-em">—</span> Bloating that returns by afternoon</div>
+      <div class="shift-item"><span class="shift-em">—</span> Brain fog that disrupts your focus</div>
+      <div class="shift-item"><span class="shift-em">—</span> Mood swings without clear cause</div>
+      <div class="shift-item"><span class="shift-em">—</span> Weight resistance despite effort</div>
+    </div>
+
+    <div class="shift-divider">→</div>
+
+    <div class="shift-after">
+      <div class="shift-col-label">After Anima</div>
+      <div class="shift-item highlight"><span class="shift-em">—</span> Calm, low inflammation from within</div>
+      <div class="shift-item highlight"><span class="shift-em">—</span> Quieter food signals, clearer choices</div>
+      <div class="shift-item"><span class="shift-em">—</span> Settled gut, sustained through the day</div>
+      <div class="shift-item"><span class="shift-em">—</span> Mental clarity that carries through</div>
+      <div class="shift-item"><span class="shift-em">—</span> Steadier mood, steadier you</div>
+      <div class="shift-item"><span class="shift-em">—</span> Metabolic alignment, not restriction</div>
+    </div>
+  </div>
+
+  <!-- Transformation Photography Grid -->
+  <div class="transformation-grid">
+    <div class="transformation-panel">
+      <img src="images/inflammation-to-calm.jpg"
+           alt="Inflammation to Calm"
+           onerror="this.parentElement.style.background='linear-gradient(160deg,#F2EBE0,#D4C0A4)'">
+      <div class="transformation-label">Inflammation → Calm</div>
+    </div>
+    <div class="transformation-panel">
+      <img src="images/food-noise-to-clarity.jpg"
+           alt="Food Noise to Clarity"
+           onerror="this.parentElement.style.background='linear-gradient(160deg,#EDE4D8,#C8B09A)'">
+      <div class="transformation-label">Food Noise → Clarity</div>
+    </div>
+    <div class="transformation-panel">
+      <img src="images/bloating-to-ease.jpg"
+           alt="Bloating to Ease"
+           onerror="this.parentElement.style.background='linear-gradient(160deg,#E8E0D5,#BCA890)'">
+      <div class="transformation-label">Bloating → Ease</div>
+    </div>
+    <div class="transformation-panel">
+      <img src="images/struggle-to-homeostasis.jpg"
+           alt="Struggle to Homeostasis"
+           onerror="this.parentElement.style.background='linear-gradient(160deg,#E2D9CC,#B09880)'">
+      <div class="transformation-label">Struggle → Homeostasis</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / RESERVE SECTION -->
+<section class="cta-section" id="reserve">
+  <h2 class="cta-h2">Join the first circle.<br><em>Before we launch.</em></h2>
+  <p class="cta-subhead">Two ways to be part of Anima's beginning. Only 200 founding boxes available.</p>
+
+  <div class="cta-cards">
+    <!-- Card 1: Secondary / Waitlist -->
+    <div class="cta-card-secondary">
+      <span class="card-badge neutral">Free · No Commitment</span>
+      <h3 class="card-title">Follow the journey</h3>
+      <p class="card-body">Stay close as we approach launch. Get early access to the science, behind-the-scenes updates, and first notification when we go live.</p>
+      <!-- Klaviyo waitlist form — replace with Klaviyo embed, tag: anima-waitlist -->
+      <div class="card-form" id="waitlist-form">
+        <input type="email" class="card-input" placeholder="Your email address" id="waitlist-email">
+        <button class="btn-secondary" onclick="handleSubmit('waitlist')">Join the Waitlist</button>
+      </div>
+      <div class="success-message" id="waitlist-success">You're on the list.</div>
+    </div>
+
+    <!-- Card 2: Primary / Reservation -->
+    <div class="cta-card-primary">
+      <span class="card-badge gold">⭐ Founder Access</span>
+      <h3 class="card-title">Reserve your first box</h3>
+      <p class="card-body">Lock in your box before public launch. Pay nothing now. You'll be invoiced at launch, before anyone else gets access.</p>
+      <!-- Klaviyo reservation form — replace with Klaviyo embed, tag: anima-reservation, property: {reservation: true} -->
+      <div class="card-form" id="reservation-form">
+        <input type="email" class="card-input" placeholder="Your email address" id="reservation-email">
+        <button class="btn-primary" onclick="handleSubmit('reservation')">Reserve — Pay at Launch</button>
+      </div>
+      <div class="success-message" id="reservation-success">You're in the first circle.</div>
+      <p class="card-fine-print">Limited to 200 founding customers · Your spot is held</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Mirabae</div>
+  <div class="footer-tagline">The future of beauty is neural.</div>
+  <div class="footer-copy">© 2026 Mirabae. All rights reserved.</div>
+</footer>
+
+<script>
+  // Sticky nav shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Klaviyo List IDs
+  const KLAVIYO_LISTS = {
+    waitlist:    'TGRgd4',
+    reservation: 'SpnqH8'
+  };
+
+  async function handleSubmit(type) {
+    const emailInput = document.getElementById(type + '-email');
+    const form       = document.getElementById(type + '-form');
+    const success    = document.getElementById(type + '-success');
+    const btn        = form.querySelector('button');
+
+    // Basic validation
+    if (!emailInput.value || !emailInput.value.includes('@')) {
+      emailInput.style.borderBottomColor = '#C0392B';
+      setTimeout(() => emailInput.style.borderBottomColor = '', 1500);
+      return;
+    }
+
+    // Loading state
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    try {
+      const formData = new FormData();
+      formData.append('g', KLAVIYO_LISTS[type]);
+      formData.append('email', emailInput.value.trim());
+
+      if (type === 'reservation') {
+        formData.append('$fields', '$consent,reservation,reserved_at');
+        formData.append('reservation', 'true');
+        formData.append('reserved_at', new Date().toISOString());
+      }
+
+      const response = await fetch('https://manage.kmail-lists.com/ajax/subscriptions/subscribe', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      const data = await response.json();
+
+      if (data.success || data.data) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (err) {
+      btn.textContent = type === 'reservation' ? 'Reserve — Pay at Launch' : 'Join the Waitlist';
+      btn.disabled = false;
+      emailInput.style.borderBottomColor = '#C0392B';
+      emailInput.placeholder = 'Something went wrong — try again';
+      setTimeout(() => {
+        emailInput.style.borderBottomColor = '';
+        emailInput.placeholder = 'Your email address';
+      }, 3000);
+    }
+  }
+
+  // Allow Enter key on inputs
+  document.querySelectorAll('.card-input').forEach(input => {
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const type = input.id.replace('-email', '');
+        handleSubmit(type);
+      }
+    });
+  });
+</script>
+</body>
+</html>
