@@ -6,1005 +6,216 @@
 <title>Mirabae · Anima — Your Gut-Brain Alignment</title>
 <meta name="description" content="Anima by Mirabae. A kefir fiber powder designed for the gut-brain axis. Reserve your box before public launch.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --gold: #C9A96E;
-  --gold-light: #E2C99A;
-  --gold-dark: #A8864A;
-  --cream: #F6F0E7;
-  --warm-white: #FDFAF5;
-  --espresso: #1A1208;
-  --espresso-mid: #2B1E0D;
-  --espresso-dark: #3D2A14;
-  --text-dark: #1C1816;
-  --text-mid: #5A4E44;
-  --text-light: #9A8E84;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--warm-white);
-  color: var(--text-dark);
-  overflow-x: hidden;
-}
-
-/* ─── NAVIGATION ─── */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 48px;
-  background: rgba(253,250,245,0.95);
-  backdrop-filter: blur(8px);
-  transition: box-shadow 0.3s ease;
-}
-
-nav.scrolled {
-  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-}
-
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  letter-spacing: 5px;
-  color: var(--espresso);
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.nav-logo span {
-  display: block;
-  font-size: 7px;
-  letter-spacing: 3px;
-  color: var(--text-light);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  margin-top: 2px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-links a {
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--text-mid);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--espresso); }
-
-.nav-cta {
-  background: var(--espresso);
-  color: var(--gold) !important;
-  padding: 10px 24px;
-  font-size: 9px !important;
-  letter-spacing: 3px !important;
-  text-decoration: none;
-  transition: opacity 0.2s !important;
-}
-
-.nav-cta:hover { opacity: 0.85; color: var(--gold) !important; }
-
-/* ─── HERO ─── */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  padding-top: 0;
-}
-
-.hero-left {
-  background: linear-gradient(160deg, var(--espresso) 0%, var(--espresso-mid) 60%, var(--espresso-dark) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-}
-
-.hero-left::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.08) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.hero-product {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 24px;
-  z-index: 1;
-  padding: 80px 40px;
-}
-
-.hero-product img.box-img {
-  height: 520px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.6));
-}
-
-.hero-product img.sachet-img {
-  height: 320px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: -20px;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
-}
-
-.hero-founder-badge {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--warm-white);
-  border-radius: 50%;
-  width: 110px;
-  height: 110px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}
-
-.hero-founder-badge .stars {
-  color: var(--gold);
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-bottom: 4px;
-}
-
-.hero-founder-badge .quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 11px;
-  color: var(--espresso);
-  line-height: 1.3;
-  margin-bottom: 6px;
-}
-
-.hero-founder-badge .name {
-  font-size: 7px;
-  letter-spacing: 2px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.hero-right {
-  background: var(--warm-white);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 64px 80px 72px;
-  position: relative;
-}
-
-.hero-eyebrow {
-  font-size: 9px;
-  letter-spacing: 4px;
-  color: var(--gold-dark);
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-
-.hero-h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 54px;
-  font-weight: 300;
-  color: var(--espresso);
-  line-height: 1.15;
-  margin-bottom: 28px;
-  max-width: 480px;
-}
-
-.hero-h1 em {
-  font-style: italic;
-  color: var(--gold-dark);
-}
-
-.hero-subhead {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 1.85;
-  max-width: 420px;
-  margin-bottom: 32px;
-}
-
-.hero-divider {
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-  margin-bottom: 28px;
-}
-
-.hero-product-name {
-  margin-bottom: 32px;
-}
-
-.hero-product-name .brand {
-  font-size: 9px;
-  letter-spacing: 4px;
-  color: var(--gold);
-  text-transform: uppercase;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.hero-product-name .name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  color: var(--espresso);
-  letter-spacing: 3px;
-  font-weight: 400;
-  display: block;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.hero-product-name .sub {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-.hero-benefit-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 32px;
-  max-width: 420px;
-}
-
-.benefit-tag {
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: var(--text-mid);
-  text-transform: uppercase;
-  font-weight: 500;
-  border: 1.5px solid rgba(201,169,110,0.4);
-  padding: 7px 14px;
-  border-radius: 100px;
-  transition: all 0.2s ease;
-  background: transparent;
-}
-
-.benefit-tag:hover {
-  border-color: var(--gold);
-  background: rgba(201,169,110,0.06);
-  color: var(--gold-dark);
-}
-
-.hero-cta-primary {
-  display: block;
-  max-width: 280px;
-  background: var(--espresso);
-  color: var(--gold);
-  text-align: center;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 16px 32px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  margin-bottom: 16px;
-}
-
-.hero-cta-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(26,18,8,0.25);
-}
-
-.hero-cta-secondary {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--text-light);
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 400;
-  transition: color 0.2s;
-  display: inline-block;
-  margin-bottom: 40px;
-}
-
-.hero-cta-secondary:hover { color: var(--gold-dark); }
-
-.hero-trust {
-  position: absolute;
-  bottom: 32px;
-  left: 72px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 9px;
-  color: var(--text-light);
-  letter-spacing: 1px;
-}
-
-.hero-trust::before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 1px;
-  background: var(--gold);
-}
-
-/* FDA disclaimer */
-.fda-disclaimer {
-  font-size: 9px;
-  color: var(--text-light);
-  line-height: 1.6;
-  max-width: 420px;
-  margin-top: auto;
-  padding-top: 20px;
-}
-
-/* ─── SCIENCE STRIP ─── */
-.science-strip {
-  background: var(--espresso);
-  padding: 28px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-}
-
-.stat-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  flex: 1;
-  max-width: 220px;
-}
-
-.stat-item + .stat-item {
-  border-left: 1px solid rgba(201,169,110,0.2);
-  padding-left: 48px;
-  margin-left: 48px;
-}
-
-.stat-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  color: var(--gold);
-  font-weight: 400;
-  line-height: 1;
-  min-width: 48px;
-}
-
-.stat-label {
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: rgba(201,169,110,0.55);
-  font-weight: 300;
-  line-height: 1.5;
-  text-transform: uppercase;
-  padding-top: 4px;
-}
-
-/* ─── SCIENCE SECTION ─── */
-.science-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 600px;
-}
-
-.science-image {
-  background: linear-gradient(160deg, #F2EBE0, #D4C0A4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  min-height: 600px;
-}
-
-.science-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.science-image-placeholder {
-  text-align: center;
-  color: var(--text-light);
-}
-
-.science-image-placeholder p {
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.science-copy {
-  background: var(--warm-white);
-  padding: 80px 72px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.section-eyebrow {
-  font-size: 9px;
-  letter-spacing: 4px;
-  color: var(--gold);
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.science-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 300;
-  color: var(--espresso);
-  line-height: 1.2;
-  margin-bottom: 28px;
-}
-
-.science-h2 em {
-  font-style: italic;
-  color: var(--gold-dark);
-}
-
-.science-body {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 1.85;
-  margin-bottom: 20px;
-}
-
-.source-badge {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: white;
-  border-left: 3px solid var(--gold);
-  padding: 16px 20px;
-  margin-top: 32px;
-}
-
-.source-badge p {
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  color: var(--text-mid);
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.source-badge span {
-  font-size: 9px;
-  color: var(--text-light);
-  display: block;
-  margin-top: 2px;
-  letter-spacing: 1px;
-}
-
-/* ─── THE SHIFT SECTION ─── */
-.shift-section {
-  background: var(--cream);
-  padding: 100px 80px;
-}
-
-.shift-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.shift-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
-  font-weight: 300;
-  color: var(--espresso);
-  margin-top: 12px;
-  line-height: 1.15;
-}
-
-.shift-h2 em {
-  font-style: italic;
-  color: var(--gold-dark);
-}
-
-.shift-grid {
-  display: grid;
-  grid-template-columns: 1fr 60px 1fr;
-  gap: 0;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.shift-before {
-  background: #F0EDE8;
-  padding: 48px 40px;
-}
-
-.shift-after {
-  background: var(--espresso);
-  padding: 48px 40px;
-}
-
-.shift-col-label {
-  font-size: 9px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-bottom: 32px;
-}
-
-.shift-before .shift-col-label { color: var(--text-light); }
-.shift-after .shift-col-label { color: var(--gold); }
-
-.shift-divider {
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  color: var(--gold);
-}
-
-.shift-item {
-  font-size: 13px;
-  font-weight: 300;
-  line-height: 1.6;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.shift-item:last-child { border-bottom: none; }
-
-.shift-before .shift-item { color: var(--text-mid); }
-.shift-after .shift-item { color: rgba(246,240,231,0.65); }
-.shift-after .shift-item.highlight {
-  color: var(--cream);
-  font-weight: 400;
-}
-
-.shift-em {
-  color: var(--text-light);
-  font-size: 13px;
-}
-
-.shift-after .shift-em {
-  color: var(--gold);
-}
-
-/* Transformation photos */
-.transformation-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 60px;
-}
-
-.transformation-panel {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 3/4;
-}
-
-.transformation-panel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.transformation-panel:hover img {
-  transform: scale(1.03);
-}
-
-.transformation-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 16px 16px;
-  background: linear-gradient(transparent, rgba(26,18,8,0.7));
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: var(--gold-light);
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-/* ─── CTA SECTION ─── */
-.cta-section {
-  background: var(--cream);
-  padding: 100px 80px;
-  text-align: center;
-}
-
-.cta-h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px;
-  font-weight: 300;
-  color: var(--espresso);
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.cta-h2 em {
-  font-style: italic;
-  color: var(--gold-dark);
-}
-
-.cta-subhead {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--text-mid);
-  margin-bottom: 56px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.7;
-}
-
-.cta-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 880px;
-  margin: 0 auto;
-  align-items: start;
-}
-
-/* Card 1 - Secondary */
-.cta-card-secondary {
-  background: white;
-  border: 1px solid rgba(201,169,110,0.25);
-  padding: 48px 40px;
-  text-align: left;
-}
-
-.card-badge {
-  display: inline-block;
-  font-size: 8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 5px 14px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-
-.card-badge.neutral {
-  background: var(--cream);
-  color: var(--text-mid);
-}
-
-.card-badge.gold {
-  border: 1px solid var(--gold);
-  color: var(--gold);
-}
-
-.card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 400;
-  color: var(--espresso);
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.cta-card-primary .card-title {
-  color: var(--cream);
-}
-
-.card-body {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--text-mid);
-  line-height: 1.75;
-  margin-bottom: 28px;
-}
-
-.cta-card-primary .card-body {
-  color: rgba(246,240,231,0.65);
-}
-
-.card-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card-input {
-  width: 100%;
-  padding: 12px 0;
-  border: none;
-  border-bottom: 1px solid var(--gold);
-  background: transparent;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--text-dark);
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.card-input:focus {
-  border-bottom-color: var(--gold-dark);
-}
-
-.card-input::placeholder {
-  color: var(--text-light);
-  letter-spacing: 1px;
-}
-
-.cta-card-primary .card-input {
-  color: var(--cream);
-  border-bottom-color: rgba(201,169,110,0.4);
-  background: transparent;
-}
-
-.cta-card-primary .card-input::placeholder {
-  color: rgba(201,169,110,0.4);
-}
-
-.cta-card-primary .card-input:focus {
-  border-bottom-color: var(--gold);
-}
-
-.btn-secondary {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold-dark);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-secondary:hover {
-  background: rgba(201,169,110,0.06);
-}
-
-.btn-primary {
-  display: block;
-  width: 100%;
-  padding: 16px;
-  background: var(--gold);
-  border: none;
-  color: var(--espresso);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s;
-}
-
-.btn-primary:hover {
-  background: var(--gold-light);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(201,169,110,0.3);
-}
-
-/* Card 2 - Primary */
-.cta-card-primary {
-  background: var(--espresso);
-  padding: 48px 40px;
-  text-align: left;
-  border-top: 2px solid transparent;
-  border-image: linear-gradient(90deg, transparent 10%, var(--gold), transparent 90%) 1;
-  box-shadow: 0 20px 60px rgba(26,18,8,0.3), 0 4px 16px rgba(26,18,8,0.2);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.cta-card-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 28px 72px rgba(26,18,8,0.35), 0 8px 24px rgba(26,18,8,0.25);
-}
-
-.card-fine-print {
-  font-size: 9px;
-  color: rgba(201,169,110,0.45);
-  letter-spacing: 1px;
-  text-align: center;
-  margin-top: 12px;
-}
-
-.success-message {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 22px;
-  color: var(--gold);
-  text-align: center;
-  padding: 32px 0;
-  display: none;
-}
-
-/* ─── FOOTER ─── */
-footer {
-  background: var(--espresso);
-  padding: 48px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-}
-
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  letter-spacing: 6px;
-  color: var(--gold);
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-.footer-tagline {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: rgba(201,169,110,0.35);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.footer-copy {
-  font-size: 9px;
-  color: rgba(201,169,110,0.25);
-  text-align: right;
-  letter-spacing: 1px;
-}
-
-/* ─── MOBILE ─── */
-@media (max-width: 768px) {
-  nav {
-    padding: 16px 24px;
-  }
-
-  .nav-links { display: none; }
-
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .hero-left {
-    min-height: 60vw;
-    padding: 40px 20px;
-  }
-
-  .hero-product img.box-img { height: 260px; }
-  .hero-product img.sachet-img { height: 160px; }
-
-  .hero-founder-badge {
-    width: 80px;
-    height: 80px;
-    bottom: 20px;
-  }
-
-  .hero-founder-badge .quote { font-size: 9px; }
-  .hero-founder-badge .name { font-size: 6px; }
-
-  .hero-right {
-    padding: 48px 28px 64px;
-  }
-
-  .hero-h1 { font-size: 36px; }
-
-  .hero-trust { left: 28px; bottom: 24px; }
-
-  .science-strip {
-    flex-wrap: wrap;
-    gap: 0;
-    padding: 24px;
-  }
-
-  .stat-item {
-    width: 50%;
-    max-width: none;
-    padding: 16px 12px;
-  }
-
-  .stat-item + .stat-item {
-    border-left: none;
-    padding-left: 12px;
-    margin-left: 0;
-  }
-
-  .stat-item:nth-child(2) { border-left: 1px solid rgba(201,169,110,0.2); }
-  .stat-item:nth-child(3) { border-top: 1px solid rgba(201,169,110,0.2); }
-  .stat-item:nth-child(4) { border-top: 1px solid rgba(201,169,110,0.2); border-left: 1px solid rgba(201,169,110,0.2); padding-left: 12px; }
-
-  .science-section {
-    grid-template-columns: 1fr;
-  }
-
-  .science-image { min-height: 320px; }
-  .science-copy { padding: 48px 28px; }
-  .science-h2 { font-size: 30px; }
-
-  .shift-section { padding: 60px 24px; }
-  .shift-h2 { font-size: 32px; }
-
-  .shift-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .shift-divider { display: none; }
-  .shift-before { order: 1; }
-  .shift-after { order: 2; }
-
-  .transformation-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cta-section { padding: 60px 24px; }
-  .cta-h2 { font-size: 34px; }
-
-  .cta-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-card-primary { order: -1; }
-
-  footer {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    text-align: center;
-    padding: 40px 24px;
-  }
-
-  .footer-copy { text-align: center; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9A96E;--gold-light:#E2C99A;--gold-dark:#A8864A;--cream:#F6F0E7;--warm-white:#FDFAF5;--cream-mid:#F0EAE0;--espresso:#1A1208;--espresso-mid:#2B1E0D;--espresso-dark:#3D2A14;--text-dark:#1C1816;--text-mid:#5A4E44;--text-light:#9A8E84}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:var(--warm-white);color:var(--text-dark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(253,250,245,0.96);backdrop-filter:blur(8px);transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:5px;color:var(--espresso);text-decoration:none;font-weight:400;text-transform:uppercase}
+.nav-logo span{display:block;font-size:7px;letter-spacing:3px;color:var(--text-light);font-family:'Montserrat',sans-serif;font-weight:300;margin-top:2px}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-mid);text-decoration:none;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--espresso)}
+.nav-cta{background:var(--espresso)!important;color:var(--gold)!important;padding:10px 24px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.hero-left{background:linear-gradient(160deg,var(--espresso) 0%,var(--espresso-mid) 60%,var(--espresso-dark) 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:100vh}
+.hero-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(201,169,110,0.08) 0%,transparent 60%)}
+.hero-trust{position:absolute;top:80px;left:50%;transform:translateX(-50%);font-size:8px;letter-spacing:2px;color:rgba(201,169,110,0.5);text-transform:uppercase;white-space:nowrap}
+.hero-product{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:20px;z-index:1;padding:100px 40px 80px}
+.hero-product img.box-img{height:480px;width:auto;object-fit:contain;filter:drop-shadow(0 40px 80px rgba(0,0,0,0.6))}
+.hero-product img.sachet-img{height:300px;width:auto;object-fit:contain;margin-bottom:-10px;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5))}
+.founder-badge{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);background:var(--warm-white);border-radius:50%;width:108px;height:108px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.founder-badge .stars{color:var(--gold);font-size:10px;margin-bottom:4px}
+.founder-badge .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:var(--espresso);line-height:1.3;margin-bottom:5px}
+.founder-badge .name{font-size:7px;letter-spacing:2px;color:var(--text-light);text-transform:uppercase;font-weight:500}
+.hero-right{background:var(--warm-white);display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 72px;position:relative}
+.eyebrow{font-size:9px;letter-spacing:4px;color:var(--gold-dark);text-transform:uppercase;font-weight:500;margin-bottom:24px}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--espresso);line-height:1.15;margin-bottom:16px;max-width:480px}
+.hero-h1 em{font-style:italic;color:var(--gold-dark)}
+.hero-sub{font-size:13px;font-weight:400;color:var(--text-mid);line-height:1.6;max-width:420px;margin-bottom:6px}
+.hero-sub2{font-size:12px;font-weight:300;color:var(--text-light);line-height:1.6;max-width:420px;margin-bottom:28px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;max-width:420px}
+.tag{font-size:9px;letter-spacing:2px;color:var(--text-mid);text-transform:uppercase;font-weight:500;border:1.5px solid rgba(201,169,110,0.35);padding:6px 14px;border-radius:100px;transition:all 0.2s}
+.tag:hover{border-color:var(--gold);color:var(--gold-dark)}
+.hero-divider{width:40px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:20px 0}
+.hero-product-name{margin-bottom:24px}
+.hero-product-name .brand{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500;display:block;margin-bottom:4px}
+.hero-product-name .pname{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--espresso);letter-spacing:3px;font-weight:400;display:block;line-height:1;margin-bottom:6px}
+.hero-product-name .psub{font-size:10px;letter-spacing:3px;color:var(--text-light);text-transform:uppercase;font-weight:300}
+.btn-dark{display:inline-block;background:var(--espresso);color:var(--gold);font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:500;padding:15px 32px;text-decoration:none;transition:all 0.25s;max-width:300px;text-align:center}
+.btn-dark:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,18,8,0.25)}
+.hero-link{font-size:10px;letter-spacing:2px;color:var(--text-light);text-decoration:none;text-transform:uppercase;transition:color 0.2s;display:inline-block;margin-top:12px}
+.hero-link:hover{color:var(--gold-dark)}
+.hero-disclaimer{font-size:9px;color:var(--text-light);line-height:1.6;max-width:380px;margin-top:20px}
+.stats-strip{background:var(--espresso);padding:24px 48px;display:flex;align-items:center;justify-content:center}
+.stat{display:flex;align-items:flex-start;gap:14px;flex:1;max-width:220px}
+.stat+.stat{border-left:1px solid rgba(201,169,110,0.2);padding-left:48px;margin-left:48px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:400;line-height:1;min-width:44px}
+.stat-lbl{font-size:9px;letter-spacing:2px;color:rgba(201,169,110,0.55);font-weight:300;line-height:1.5;text-transform:uppercase;padding-top:4px}
+.loop-section{background:var(--cream-mid);padding:100px 80px;text-align:center}
+.loop-pre{font-size:9px;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;font-weight:500;margin-bottom:32px}
+.loop-h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--espresso);line-height:1.2;margin-bottom:8px}
+.loop-h2 em{font-style:italic;color:var(--gold-dark)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(90,78,68,0.1);max-width:900px;margin:48px auto 0}
+.pain-item{padding:32px 28px;text-align:left;border-right:1px solid rgba(90,78,68,0.1);border-bottom:1px solid rgba(90,78,68,0.1)}
+.pain-item:nth-child(3n){border-right:none}
+.pain-item:nth-child(n+4){border-bottom:none}
+.pain-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;margin-bottom:14px}
+.pain-text{font-size:12px;font-weight:300;color:var(--text-mid);line-height:1.65}
+.narrative-section{background:var(--warm-white);padding:100px 80px;max-width:860px;margin:0 auto}
+.narrative-p{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.9;margin-bottom:24px}
+.callout{text-align:center;padding:48px 0;border-top:1px solid rgba(201,169,110,0.15);border-bottom:1px solid rgba(201,169,110,0.15);margin:32px 0}
+.callout .clbl{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.callout p{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--text-mid);line-height:1.7;max-width:560px;margin:0 auto}
+.signals-section{background:var(--cream-mid);padding:100px 80px;text-align:center}
+.sig-pre{font-size:9px;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:32px}
+.sig-pre::before,.sig-pre::after{content:'';display:block;height:1px;width:48px;background:rgba(90,78,68,0.2)}
+.sig-h2{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--espresso);line-height:1.2;margin-bottom:16px}
+.sig-h2 em{font-style:italic;color:var(--gold-dark)}
+.sig-body{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.85;max-width:520px;margin:0 auto 48px}
+.testimonials{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:700px;margin:0 auto}
+.testimonial{background:white;padding:32px 36px;text-align:left}
+.testimonial blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text-mid);line-height:1.6;margin-bottom:14px;font-weight:300}
+.testimonial cite{font-size:9px;letter-spacing:2px;color:var(--text-light);text-transform:uppercase;font-weight:500;font-style:normal}
+.science-section{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.science-left{background:var(--cream-mid);display:flex;align-items:center;justify-content:center;padding:80px 60px;min-height:600px}
+.science-left img{height:500px;width:auto;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(0,0,0,0.15))}
+.science-right{background:var(--warm-white);padding:80px 72px;display:flex;flex-direction:column;justify-content:center}
+.sci-ey{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:6px}
+.sci-sub{font-size:9px;letter-spacing:2px;color:var(--text-light);text-transform:uppercase;margin-bottom:24px}
+.sci-h2{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--espresso);line-height:1.2;margin-bottom:24px}
+.sci-h2 em{font-style:italic;color:var(--gold-dark)}
+.sci-p{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.85;margin-bottom:14px}
+.source-card{background:var(--cream-mid);border-left:3px solid var(--gold);padding:16px 20px;margin-top:20px}
+.source-card .st{font-size:10px;letter-spacing:1.5px;color:var(--text-mid);font-weight:500;text-transform:uppercase}
+.source-card .ss{font-size:9px;color:var(--text-light);margin-top:3px;letter-spacing:1px}
+.benefits-strip{background:var(--cream-mid);padding:64px 80px}
+.ben-pre{font-size:9px;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;text-align:center;margin-bottom:48px}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;max-width:1000px;margin:0 auto}
+.ben-card h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--espresso);margin-bottom:12px}
+.ben-card p{font-size:12px;font-weight:300;color:var(--text-mid);line-height:1.75}
+.shift-section{background:var(--warm-white);padding:100px 80px}
+.shift-header{text-align:center;margin-bottom:64px}
+.shift-ey{font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:16px}
+.shift-h2{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--espresso)}
+.shift-h2 em{font-style:italic;color:var(--gold-dark)}
+.shift-panels{display:flex;flex-direction:column;gap:3px;max-width:900px;margin:0 auto}
+.shift-panel{display:grid;grid-template-columns:1fr 1fr}
+.sp-lbl{font-size:8px;letter-spacing:3px;text-transform:uppercase;font-weight:500;margin-bottom:18px}
+.before-col{background:#F0EDE8;padding:40px}
+.before-col .sp-lbl{color:var(--text-light)}
+.before-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--text-mid);margin-bottom:14px}
+.before-col p{font-size:12px;font-weight:300;color:var(--text-mid);line-height:1.7;margin-bottom:8px}
+.after-col{background:#2B2420;padding:40px 40px 40px 48px;display:flex;flex-direction:column;justify-content:center}
+.after-col .sp-lbl{color:var(--gold)}
+.after-col p{font-size:12px;font-weight:300;color:rgba(246,240,231,0.6);line-height:1.7;margin-bottom:8px}
+.after-col p.hl{color:var(--cream);font-weight:400}
+.shift-footer{text-align:center;margin-top:48px;font-size:12px;font-weight:300;color:var(--text-light);font-style:italic}
+.ritual-section{background:var(--espresso);padding:100px 80px}
+.ritual-header{text-align:center;margin-bottom:72px}
+.rit-ey{font-size:9px;letter-spacing:4px;color:rgba(201,169,110,0.5);text-transform:uppercase;margin-bottom:20px}
+.rit-h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--cream);line-height:1.2}
+.rit-h2 em{font-style:italic;color:var(--gold)}
+.ritual-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1000px;margin:0 auto}
+.ritual-product img{width:100%;max-width:320px;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(0,0,0,0.5))}
+.ritual-steps{display:flex;flex-direction:column;gap:36px;padding-top:20px}
+.rstep{display:flex;gap:24px;align-items:flex-start}
+.rstep-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);font-weight:300;line-height:1;min-width:32px}
+.rstep-content h4{font-size:13px;letter-spacing:2px;color:var(--cream);font-weight:500;text-transform:uppercase;margin-bottom:8px}
+.rstep-content p{font-size:12px;font-weight:300;color:rgba(246,240,231,0.5);line-height:1.7}
+.ritual-specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,169,110,0.15);padding-top:48px;margin-top:64px;max-width:1000px;margin-left:auto;margin-right:auto}
+.rspec{text-align:center;padding:0 20px;border-right:1px solid rgba(201,169,110,0.15)}
+.rspec:last-child{border-right:none}
+.rspec-lbl{font-size:8px;letter-spacing:2px;color:rgba(201,169,110,0.4);text-transform:uppercase;margin-bottom:8px}
+.rspec-val{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gold)}
+.ing-section{background:#13100A;padding:64px 80px}
+.ing-title{font-size:9px;letter-spacing:4px;color:rgba(201,169,110,0.4);text-transform:uppercase;text-align:center;margin-bottom:40px}
+.ing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:800px;margin:0 auto}
+.ing-card{background:rgba(255,255,255,0.03);border:1px solid rgba(201,169,110,0.1);padding:28px 32px}
+.ing-card h4{font-size:12px;letter-spacing:1px;color:var(--gold-light);font-weight:500;margin-bottom:8px}
+.ing-card p{font-size:11px;font-weight:300;color:rgba(246,240,231,0.4);line-height:1.65}
+.faq-section{background:var(--warm-white);padding:100px 80px}
+.faq-header{text-align:center;margin-bottom:64px}
+.faq-ey{font-size:9px;letter-spacing:4px;color:var(--text-light);text-transform:uppercase;margin-bottom:20px}
+.faq-h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--espresso);line-height:1.2}
+.faq-h2 em{font-style:italic;color:var(--gold-dark)}
+.faq-list{max-width:680px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(90,78,68,0.12)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:24px 0;cursor:pointer;font-size:13px;color:var(--text-dark)}
+.faq-icon{font-size:20px;color:var(--gold);transition:transform 0.3s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.8;padding-bottom:24px;display:none}
+.faq-item.open .faq-a{display:block}
+.cta-section{background:var(--cream);padding:100px 80px;text-align:center}
+.cta-h2{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:var(--espresso);line-height:1.2;margin-bottom:16px}
+.cta-h2 em{font-style:italic;color:var(--gold-dark)}
+.cta-sub{font-size:13px;font-weight:300;color:var(--text-mid);margin-bottom:56px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:860px;margin:0 auto;align-items:start}
+.card{padding:44px 36px;text-align:left}
+.card-secondary{background:white;border:1px solid rgba(201,169,110,0.2)}
+.card-primary{background:var(--espresso);border-top:2px solid transparent;border-image:linear-gradient(90deg,transparent 10%,var(--gold),transparent 90%) 1;box-shadow:0 20px 60px rgba(26,18,8,0.3);transition:transform 0.3s,box-shadow 0.3s}
+.card-primary:hover{transform:translateY(-3px);box-shadow:0 28px 72px rgba(26,18,8,0.35)}
+.cbadge{display:inline-block;font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:500;padding:5px 14px;border-radius:100px;margin-bottom:20px}
+.badge-n{background:var(--cream);color:var(--text-mid)}
+.badge-g{border:1px solid var(--gold);color:var(--gold)}
+.badge-r{background:var(--gold);color:var(--espresso)}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--espresso);margin-bottom:10px}
+.card-primary .card-title{color:var(--cream)}
+.card-body{font-size:12px;font-weight:300;color:var(--text-mid);line-height:1.7;margin-bottom:20px}
+.card-primary .card-body{color:rgba(246,240,231,0.6)}
+.c-input{width:100%;padding:12px 0;border:none;border-bottom:1px solid rgba(201,169,110,0.4);background:transparent;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;color:var(--text-dark);outline:none;transition:border-color 0.2s;margin-bottom:14px;display:block}
+.c-input::placeholder{color:var(--text-light)}
+.card-primary .c-input{color:var(--cream);border-bottom-color:rgba(201,169,110,0.3)}
+.card-primary .c-input::placeholder{color:rgba(201,169,110,0.35)}
+.btn-o{width:100%;padding:13px;background:transparent;border:1px solid rgba(201,169,110,0.5);color:var(--gold-dark);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:500;cursor:pointer;transition:all 0.2s}
+.btn-o:hover{background:rgba(201,169,110,0.06)}
+.btn-g{width:100%;padding:15px;background:var(--gold);border:none;color:var(--espresso);font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all 0.25s}
+.btn-g:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,169,110,0.3)}
+.price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.price-big{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);font-weight:300}
+.price-per{font-size:11px;color:rgba(246,240,231,0.4)}
+.price-orig{font-size:11px;color:rgba(246,240,231,0.25);text-decoration:line-through;margin-left:4px}
+.fine{font-size:9px;color:rgba(201,169,110,0.4);text-align:center;margin-top:10px;letter-spacing:1px}
+.success-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;text-align:center;padding:24px 0;display:none}
+.card-secondary .success-msg{color:var(--gold-dark)}
+.card-primary .success-msg{color:var(--gold)}
+.divider-inner{border-top:1px solid rgba(201,169,110,0.1);padding-top:28px;margin-top:28px}
+footer{background:var(--espresso);padding:44px 80px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:6px;color:var(--gold);text-transform:uppercase}
+.f-tag{font-size:10px;letter-spacing:2px;color:rgba(201,169,110,0.3);text-align:center;text-transform:uppercase}
+.f-copy{font-size:9px;color:rgba(201,169,110,0.2);text-align:right;letter-spacing:1px}
+@media(max-width:768px){
+nav{padding:16px 20px}.nav-links{display:none}
+.hero{grid-template-columns:1fr}.hero-left{min-height:65vw;padding:60px 20px 40px}
+.hero-product img.box-img{height:240px}.hero-product img.sachet-img{height:150px}
+.founder-badge{width:80px;height:80px;bottom:16px}.founder-badge .quote{font-size:9px}
+.hero-right{padding:48px 24px 60px}.hero-h1{font-size:36px}
+.stats-strip{flex-wrap:wrap;padding:20px}
+.stat{width:50%;max-width:none;padding:12px}.stat+.stat{border-left:none;padding-left:12px;margin-left:0}
+.stat:nth-child(2){border-left:1px solid rgba(201,169,110,0.2)}
+.stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(201,169,110,0.2)}
+.stat:nth-child(4){border-left:1px solid rgba(201,169,110,0.2)}
+.loop-section,.signals-section,.shift-section,.ritual-section,.faq-section,.cta-section,.ing-section,.benefits-strip{padding:60px 24px}
+.loop-h2{font-size:32px}.pain-grid{grid-template-columns:1fr 1fr}
+.narrative-section{padding:60px 24px}.sig-h2{font-size:32px}.testimonials{grid-template-columns:1fr}
+.science-section{grid-template-columns:1fr}.science-left{min-height:300px;padding:40px}.science-left img{height:280px}.science-right{padding:48px 24px}.sci-h2{font-size:28px}
+.ben-grid{grid-template-columns:1fr;gap:32px}
+.shift-h2{font-size:32px}.shift-panel{grid-template-columns:1fr}
+.ritual-grid{grid-template-columns:1fr;gap:40px}.rit-h2{font-size:32px}
+.ritual-specs{grid-template-columns:repeat(2,1fr)}.ing-grid{grid-template-columns:1fr}
+.faq-h2{font-size:32px}.cta-h2{font-size:32px}.cta-cards{grid-template-columns:1fr}
+.card-primary{order:-1}
+footer{grid-template-columns:1fr;gap:16px;text-align:center;padding:36px 24px}.f-copy{text-align:center}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav id="navbar">
-  <a href="#" class="nav-logo">
-    Mirabae
-    <span>The future of beauty is neural.</span>
-  </a>
+  <a href="#" class="nav-logo">Mirabae <span>The future of beauty is neural.</span></a>
   <ul class="nav-links">
     <li><a href="#science">The Science</a></li>
     <li><a href="#shift">The Shift</a></li>
@@ -1013,275 +224,256 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="anima">
   <div class="hero-left">
+    <div class="hero-trust">Based on University of Nottingham · February 2026</div>
     <div class="hero-product">
-      <img class="box-img"
-           src="anima_box_hero.png"
-           alt="Anima Kefir Fiber Powder Box"
-           onerror="this.style.display='none'">
-      <img class="sachet-img"
-           src="anima_sachet_hero.png"
-           alt="Anima Sachet"
-           onerror="this.style.display='none'">
+      <img class="box-img" src="anima_box_hero.png" alt="Anima Box" onerror="this.style.opacity='0.1'">
+      <img class="sachet-img" src="anima_sachet_hero.png" alt="Anima Sachet" onerror="this.style.opacity='0.1'">
     </div>
-    <div class="hero-founder-badge">
+    <div class="founder-badge">
       <div class="stars">♦ ♥ ♦</div>
       <div class="quote">I made this for myself first.</div>
       <div class="name">Anjelika<br>Founder</div>
     </div>
   </div>
-
   <div class="hero-right">
-    <p class="hero-eyebrow">New · Limited Pre-Launch</p>
-    <h1 class="hero-h1">You're not broken.<br>You're overwhelmed<br>by <em>signals.</em></h1>
-    <p class="hero-subhead">Your gut sends 500 million signals to your brain every day. When the microbiome is disrupted, those signals become noise — food cravings, mood swings, brain fog, inflammation. Anima is designed to restore the conversation.</p>
+    <p class="eyebrow">New · Limited Pre-Launch</p>
+    <h1 class="hero-h1">You're not broken.<br>Your <em>signals</em> are.</h1>
+    <p class="hero-sub">This is what most people call food noise.</p>
+    <p class="hero-sub2">Not a lack of discipline. A system out of balance.</p>
+    <div class="hero-tags">
+      <span class="tag">Fewer Cravings</span><span class="tag">Quieten Mind Around Food</span>
+      <span class="tag">Flatter Stomach Within Days</span><span class="tag">Stable Energy</span>
+      <span class="tag">Clearer Skin</span>
+    </div>
+    <p style="font-size:11px;color:var(--text-light);font-style:italic;margin-bottom:16px;">Most women report feeling lighter, less bloated, and more in control within days.</p>
+    <p style="font-size:9px;color:var(--text-light);line-height:1.6;max-width:380px;margin-bottom:20px;">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
     <div class="hero-divider"></div>
     <div class="hero-product-name">
-      <span class="brand">Mirabae</span>
-      <span class="name">Anima</span>
-      <span class="sub">Kefir Fiber Powder · 30 Daily Sachets</span>
+      <span class="brand">Mirabae</span><span class="pname">Anima</span>
+      <span class="psub">Kefir Fiber Powder · 30 Daily Sachets</span>
     </div>
-    <div class="hero-benefit-tags">
-      <span class="benefit-tag">Clearer Skin</span>
-      <span class="benefit-tag">Less Bloating</span>
-      <span class="benefit-tag">Quieter Food Noise</span>
-      <span class="benefit-tag">Lower Inflammation</span>
-      <span class="benefit-tag">Better Sleep</span>
-      <span class="benefit-tag">Healthy Weight</span>
-    </div>
-    <a href="#reserve" class="hero-cta-primary">Reserve Your First Box</a>
-    <a href="#science" class="hero-cta-secondary">Explore the science →</a>
-    <p class="fda-disclaimer">These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
-    <p class="hero-trust">Based on University of Nottingham research, 2026</p>
+    <a href="#reserve" class="btn-dark">Reserve Your First Box</a>
+    <a href="#science" class="hero-link">Explore the science →</a>
   </div>
 </section>
 
-<!-- SCIENCE STRIP -->
-<div class="science-strip">
-  <div class="stat-item">
-    <div class="stat-number">500M</div>
-    <div class="stat-label">Neural signals from gut to brain daily</div>
+<div class="stats-strip">
+  <div class="stat"><div class="stat-num">500M</div><div class="stat-lbl">Neural signals from gut to brain daily</div></div>
+  <div class="stat"><div class="stat-num">8wk</div><div class="stat-lbl">Study duration · University of Nottingham 2026</div></div>
+  <div class="stat"><div class="stat-num">39T</div><div class="stat-lbl">Microbial cells in the human gut</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">Daily sachet. One ritual. Morning or evening.</div></div>
+</div>
+
+<section class="loop-section">
+  <p class="loop-pre">Why it feels so hard</p>
+  <h2 class="loop-h2">You think it's discipline.</h2>
+  <h2 class="loop-h2">It's not. It's a <em>loop.</em></h2>
+  <div class="pain-grid">
+    <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Thinking about food even when you just ate</p></div>
+    <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Cravings that feel louder than actual hunger</p></div>
+    <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Cycles of control, then loss of control</p></div>
+    <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Mental fatigue despite doing everything right</p></div>
+    <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Skin and body not reflecting your effort</p></div>
+    <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">Bloating, heaviness, or a quiet inflammation you cannot trace</p></div>
   </div>
-  <div class="stat-item">
-    <div class="stat-number">8wk</div>
-    <div class="stat-label">Study duration · University of Nottingham 2026</div>
+</section>
+
+<section class="narrative-section">
+  <p class="narrative-p">You have been trying. Really trying. You track what you eat, start the morning with intention, choose the better option, say no when you mean to say no. And then somewhere between afternoon and evening, something shifts. The noise returns. The craving is not even for something specific. It is just noise.</p>
+  <p class="narrative-p">So you try harder the next day. More discipline. More structure. You wonder if the problem is you. But the cycle does not end. It simply changes shape.</p>
+  <div class="callout">
+    <p class="clbl">The Food Noise Signal Loop</p>
+    <p>When gut signals are unstable, your brain keeps asking for more — even when your body does not need it. This is not weakness. This is biology.</p>
   </div>
-  <div class="stat-item">
-    <div class="stat-number">39T</div>
-    <div class="stat-label">Microbial cells in the human gut</div>
+  <p class="narrative-p">This is also why standard advice — eat less, move more, build better habits — works for a while and then stops. Because it treats the symptom, not the signal.</p>
+</section>
+
+<section class="signals-section">
+  <p class="sig-pre">A different way of understanding it</p>
+  <h2 class="sig-h2">It is not your willpower.<br><em>It is your signals.</em></h2>
+  <p class="sig-body">You do not have multiple problems. You are experiencing one system that is out of alignment. Your gut and your brain are in constant conversation, exchanging chemical signals that regulate hunger, mood, inflammation, and clarity. When that conversation is disrupted, everything feels harder than it should. Not because of who you are. Because of what your system is missing.</p>
+  <div class="testimonials">
+    <div class="testimonial"><blockquote>"I didn't expect much. But within days, I just felt… calmer."</blockquote><cite>— Early Tester</cite></div>
+    <div class="testimonial"><blockquote>"The biggest difference? I stopped thinking about food all the time."</blockquote><cite>— Pre-launch Member</cite></div>
   </div>
-  <div class="stat-item">
-    <div class="stat-number">1</div>
-    <div class="stat-label">Daily sachet. One ritual. Morning or evening.</div>
+</section>
+
+<section class="science-section" id="science">
+  <div class="science-left">
+    <img src="anima_sachet_hero.png" alt="Anima Sachet" onerror="this.style.opacity='0.2'">
+  </div>
+  <div class="science-right">
+    <p class="sci-ey">The Science</p>
+    <p class="sci-sub">Kefir fiber and the gut-brain axis, reviewed by leading scientists</p>
+    <h2 class="sci-h2">Your gut is not just digesting food.<br><em>It is talking to your brain.</em></h2>
+    <p class="sci-p">Every hour of every day, your gut sends signals that govern hunger, mood, focus, and inflammation. This is not a metaphor. It is a measurable biochemical conversation happening inside you right now.</p>
+    <p class="sci-p">When this communication is off, everything feels harder — food noise, cravings, skin flares, unstable energy. Anima works at the source of that signal. Not with restrictions. With biology.</p>
+    <p class="sci-p">Over 90% of serotonin is produced in the gut, influencing mood, appetite, and mental clarity. Emerging research suggests that targeted fibers and fermented compounds can influence gut-brain signalling and inflammatory markers.</p>
+    <div class="source-card"><div class="st">Research Source</div><div class="ss">University of Nottingham · February 2026 · Journal of Translational Medicine</div></div>
+  </div>
+</section>
+
+<div class="benefits-strip">
+  <p class="ben-pre">How Anima works in your body</p>
+  <div class="ben-grid">
+    <div class="ben-card"><h4>Microbiome Diversity</h4><p>Feeds the bacteria that regulate hunger signals. A diverse microbiome produces the short-chain fatty acids and anti-inflammatory compounds your body needs to function quietly.</p></div>
+    <div class="ben-card"><h4>Gut-Brain Signalling</h4><p>Supports a calmer gut-brain communication. Over 90% of serotonin is produced in the gut. When that signal stabilises, mood, appetite, and mental clarity follow.</p></div>
+    <div class="ben-card"><h4>Appetite Regulation</h4><p>Helps reduce the internal inflammation linked to cravings and skin issues. Not by suppressing appetite. By recalibrating the signals that create it.</p></div>
   </div>
 </div>
 
-<!-- SCIENCE SECTION -->
-<section class="science-section" id="science">
-  <div class="science-image">
-    <!-- Replace with morning ritual photography when ready -->
-    <div class="science-image-placeholder">
-      <p>Morning ritual photography</p>
-    </div>
-  </div>
-  <div class="science-copy">
-    <p class="section-eyebrow">The Science</p>
-    <h2 class="science-h2">The gut-brain axis is the <em>missing link</em> in your wellness stack.</h2>
-    <p class="science-body">A landmark 2026 study from the University of Nottingham found that kefir-derived fiber directly modulates the gut microbiome — reducing systemic inflammation, improving neurotransmitter signalling, and supporting the vagus nerve pathway responsible for mood, appetite, and cognitive clarity.</p>
-    <p class="science-body">Anima is the first consumer product built directly on this research. Each sachet delivers a precisely calibrated fiber matrix designed to work with your existing microbiome, not against it.</p>
-    <div class="source-badge">
-      <div>
-        <p>University of Nottingham · February 2026</p>
-        <span>Peer-reviewed · Gut-Brain Axis Research Programme</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THE SHIFT SECTION -->
 <section class="shift-section" id="shift">
   <div class="shift-header">
-    <p class="section-eyebrow">The Shift</p>
+    <p class="shift-ey">The Shift</p>
     <h2 class="shift-h2">From noise to <em>alignment.</em></h2>
   </div>
-
-  <div class="shift-grid">
-    <div class="shift-before">
-      <div class="shift-col-label">Before Anima</div>
-      <div class="shift-item"><span class="shift-em">—</span> Inflammation you can't trace</div>
-      <div class="shift-item"><span class="shift-em">—</span> Food noise that won't quiet down</div>
-      <div class="shift-item"><span class="shift-em">—</span> Bloating that returns by afternoon</div>
-      <div class="shift-item"><span class="shift-em">—</span> Brain fog that disrupts your focus</div>
-      <div class="shift-item"><span class="shift-em">—</span> Mood swings without clear cause</div>
-      <div class="shift-item"><span class="shift-em">—</span> Weight resistance despite effort</div>
+  <div class="shift-panels">
+    <div class="shift-panel">
+      <div class="before-col">
+        <div class="sp-lbl">Before Anima</div>
+        <div class="before-title">Inflammation to Calm</div>
+        <p>A low-grade heaviness you carry everywhere. Skin that flares without warning. An ache that no test can explain.</p>
+        <p>You have learned to live with it. But you should not have to.</p>
+      </div>
+      <div class="after-col">
+        <div class="sp-lbl">After Anima</div>
+        <p class="hl">You wake up lighter. Your skin settles.</p>
+        <p>The feeling of your body running — finally quiet.</p>
+        <p>Not because you changed everything. Because one signal did.</p>
+      </div>
     </div>
-
-    <div class="shift-divider">→</div>
-
-    <div class="shift-after">
-      <div class="shift-col-label">After Anima</div>
-      <div class="shift-item highlight"><span class="shift-em">—</span> Calm, low inflammation from within</div>
-      <div class="shift-item highlight"><span class="shift-em">—</span> Quieter food signals, clearer choices</div>
-      <div class="shift-item"><span class="shift-em">—</span> Settled gut, sustained through the day</div>
-      <div class="shift-item"><span class="shift-em">—</span> Mental clarity that carries through</div>
-      <div class="shift-item"><span class="shift-em">—</span> Steadier mood, steadier you</div>
-      <div class="shift-item"><span class="shift-em">—</span> Metabolic alignment, not restriction</div>
+    <div class="shift-panel">
+      <div class="before-col">
+        <div class="sp-lbl">Before Anima</div>
+        <div class="before-title">Food Noise to Clarity</div>
+        <p>You think about food constantly. Even after eating.</p>
+        <p>The cravings are not even for something specific. It is just static. A loop that does not stop, no matter how much willpower you apply.</p>
+      </div>
+      <div class="after-col">
+        <div class="sp-lbl">After Anima</div>
+        <p class="hl">You forget about food for hours.</p>
+        <p>Not forced. Natural.</p>
+        <p>The quiet is unfamiliar at first. Then it becomes the new normal.</p>
+      </div>
     </div>
   </div>
+  <p class="shift-footer">Most women notice a difference within 3 to 7 days. Not dramatic. Just a quiet shift.</p>
+</section>
 
-  <!-- Transformation Photography Grid -->
-  <div class="transformation-grid">
-    <div class="transformation-panel">
-      <img src="inflammation-to-calm.jpg"
-           alt="Inflammation to Calm"
-           onerror="this.parentElement.style.background='linear-gradient(160deg,#F2EBE0,#D4C0A4)'">
-      <div class="transformation-label">Inflammation → Calm</div>
+<section class="ritual-section">
+  <div class="ritual-header">
+    <p class="rit-ey">How to use Anima</p>
+    <h2 class="rit-h2">Your new <em>30-second daily ritual.</em></h2>
+  </div>
+  <div class="ritual-grid">
+    <div class="ritual-product"><img src="anima_box_hero.png" alt="Anima Box" onerror="this.style.opacity='0.2'"></div>
+    <div class="ritual-steps">
+      <div class="rstep"><div class="rstep-num">01</div><div class="rstep-content"><h4>Open one sachet</h4><p>Each box contains 30 individually portioned sachets. One for each day of the month.</p></div></div>
+      <div class="rstep"><div class="rstep-num">02</div><div class="rstep-content"><h4>Stir into 150ml of plain kefir</h4><p>The kefir base is half the protocol. The live cultures within the authentic kefir and Anima work as a tandem pair, making the blend twice as effective.</p></div></div>
+      <div class="rstep"><div class="rstep-num">03</div><div class="rstep-content"><h4>Drink it. Morning or evening.</h4><p>Choose whichever moment feels right. Small rituals find their morning groove. Before coffee, as the first thing. Or evening, before the slow down.</p></div></div>
     </div>
-    <div class="transformation-panel">
-      <img src="food-noise-to-clarity.jpg"
-           alt="Food Noise to Clarity"
-           onerror="this.parentElement.style.background='linear-gradient(160deg,#EDE4D8,#C8B09A)'">
-      <div class="transformation-label">Food Noise → Clarity</div>
-    </div>
-    <div class="transformation-panel">
-      <img src="bloating-to-ease.jpg"
-           alt="Bloating to Ease"
-           onerror="this.parentElement.style.background='linear-gradient(160deg,#E8E0D5,#BCA890)'">
-      <div class="transformation-label">Bloating → Ease</div>
-    </div>
-    <div class="transformation-panel">
-      <img src="struggle-to-homeostasis.jpg"
-           alt="Struggle to Homeostasis"
-           onerror="this.parentElement.style.background='linear-gradient(160deg,#E2D9CC,#B09880)'">
-      <div class="transformation-label">Struggle → Homeostasis</div>
-    </div>
+  </div>
+  <div class="ritual-specs">
+    <div class="rspec"><div class="rspec-lbl">Format</div><div class="rspec-val">Powder sachet</div></div>
+    <div class="rspec"><div class="rspec-lbl">Contents</div><div class="rspec-val">30 daily sachets</div></div>
+    <div class="rspec"><div class="rspec-lbl">Serve size</div><div class="rspec-val">1 sachet per day</div></div>
+    <div class="rspec"><div class="rspec-lbl">Best with</div><div class="rspec-val">Plain kefir 150ml</div></div>
   </div>
 </section>
 
-<!-- CTA / RESERVE SECTION -->
+<div class="ing-section">
+  <p class="ing-title">What's inside</p>
+  <div class="ing-grid">
+    <div class="ing-card"><h4>Fermented Kefir Powder</h4><p>A concentrated form of traditional kefir. Used alongside plain liquid kefir to amplify the probiotic and prebiotic effect within the gut lining.</p></div>
+    <div class="ing-card"><h4>Prebiotic Fiber Blend</h4><p>A targeted mix of soluble fibers that feed the specific bacterial strains associated with gut-brain signalling, appetite regulation, and inflammatory control.</p></div>
+  </div>
+</div>
+
+<section class="faq-section">
+  <div class="faq-header">
+    <p class="faq-ey">Questions</p>
+    <h2 class="faq-h2">Everything you need to know<br><em>before you reserve.</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q">What does Anima taste like? <span class="faq-icon">+</span></div><div class="faq-a">Anima has a mild, slightly tangy flavour when mixed into plain kefir. Most people find it pleasant and neutral. Some describe it as slightly earthy.</div></div>
+    <div class="faq-item"><div class="faq-q">When will I notice a difference? <span class="faq-icon">+</span></div><div class="faq-a">Most women report noticing a change in food noise and bloating within 3 to 7 days. Skin and energy changes typically follow in weeks 2 to 4.</div></div>
+    <div class="faq-item"><div class="faq-q">Where do I get the kefir? <span class="faq-icon">+</span></div><div class="faq-a">Plain, full-fat kefir is available in most supermarkets. Look for live cultures on the label. We recommend avoiding flavoured varieties.</div></div>
+    <div class="faq-item"><div class="faq-q">I am lactose intolerant. Can I still use this? <span class="faq-icon">+</span></div><div class="faq-a">Many people with lactose sensitivity tolerate kefir well because the fermentation process breaks down most of the lactose. We recommend consulting your doctor first.</div></div>
+    <div class="faq-item"><div class="faq-q">Is it safe during pregnancy or breastfeeding? <span class="faq-icon">+</span></div><div class="faq-a">We always recommend speaking with your healthcare provider before starting any new supplement during pregnancy or breastfeeding.</div></div>
+    <div class="faq-item"><div class="faq-q">I am on medication. Is this safe? <span class="faq-icon">+</span></div><div class="faq-a">Anima is a food supplement, not a drug. If you are on medication — particularly for gut, mood, or immune conditions — please speak with your doctor first.</div></div>
+    <div class="faq-item"><div class="faq-q">How many boxes do I need? <span class="faq-icon">+</span></div><div class="faq-a">We recommend starting with one box (30 days). Most women who continue see compounding improvements through months two and three as the microbiome stabilises.</div></div>
+  </div>
+</section>
+
 <section class="cta-section" id="reserve">
   <h2 class="cta-h2">Join the first circle.<br><em>Before we launch.</em></h2>
-  <p class="cta-subhead">Two ways to be part of Anima's beginning. Only 200 founding boxes available.</p>
-
+  <p class="cta-sub">Two ways to be part of Anima's beginning. Only 200 founding boxes available.</p>
   <div class="cta-cards">
-    <!-- Card 1: Secondary / Waitlist -->
-    <div class="cta-card-secondary">
-      <span class="card-badge neutral">Free · No Commitment</span>
+    <div class="card card-secondary">
+      <span class="cbadge badge-n">Free · No Commitment</span>
       <h3 class="card-title">Follow the journey</h3>
-      <p class="card-body">Stay close as we approach launch. Get early access to the science, behind-the-scenes updates, and first notification when we go live.</p>
-      <!-- Klaviyo waitlist form — replace with Klaviyo embed, tag: anima-waitlist -->
-      <div class="card-form" id="waitlist-form">
-        <input type="email" class="card-input" placeholder="Your email address" id="waitlist-email">
-        <button class="btn-secondary" onclick="handleSubmit('waitlist')">Join the Waitlist</button>
-      </div>
-      <div class="success-message" id="waitlist-success">You're on the list.</div>
+      <p class="card-body">Be the first to know when Anima launches. Get research updates, no commitment required.</p>
+      <div id="waitlist-form"><input type="email" class="c-input" placeholder="your@email.com" id="waitlist-email"><button class="btn-o" onclick="handleSubmit('waitlist')">Join the Waitlist</button></div>
+      <div class="success-msg" id="waitlist-success">You're on the list.</div>
     </div>
-
-    <!-- Card 2: Primary / Reservation -->
-    <div class="cta-card-primary">
-      <span class="card-badge gold">⭐ Founder Access</span>
-      <h3 class="card-title">Reserve your first box</h3>
-      <p class="card-body">Lock in your box before public launch. Pay nothing now. You'll be invoiced at launch, before anyone else gets access.</p>
-      <!-- Klaviyo reservation form — replace with Klaviyo embed, tag: anima-reservation, property: {reservation: true} -->
-      <div class="card-form" id="reservation-form">
-        <input type="email" class="card-input" placeholder="Your email address" id="reservation-email">
-        <button class="btn-primary" onclick="handleSubmit('reservation')">Reserve — Pay at Launch</button>
+    <div class="card card-primary">
+      <span class="cbadge badge-r">★ Recommended</span>
+      <div style="font-size:9px;letter-spacing:2px;color:rgba(201,169,110,0.5);text-transform:uppercase;margin-bottom:8px;">Option 1 — Subscribe &amp; Save</div>
+      <div class="price-row"><span class="price-big">€69</span><span class="price-per">/month</span><span class="price-orig">€97</span></div>
+      <p style="font-size:10px;color:rgba(201,169,110,0.45);margin-bottom:16px;letter-spacing:1px;">Founding member rate. Cancel anytime. Invoiced at launch.</p>
+      <div id="reservation-form"><input type="email" class="c-input" placeholder="your@email.com" id="reservation-email"><button class="btn-g" onclick="handleSubmit('reservation')">Reserve — Subscribe &amp; Save</button></div>
+      <div class="success-msg" id="reservation-success">You're in the first circle.</div>
+      <p class="fine">Limited to 200 founding customers · Your spot is held</p>
+      <div class="divider-inner">
+        <div style="font-size:9px;letter-spacing:2px;color:rgba(201,169,110,0.5);text-transform:uppercase;margin-bottom:8px;">Option 2 — One-Time Box</div>
+        <div class="price-row"><span class="price-big" style="font-size:28px;">€97</span><span class="price-per">/box</span></div>
+        <p style="font-size:11px;color:rgba(246,240,231,0.4);margin-bottom:14px;">One box. 30 days. Invoiced at launch.</p>
+        <div id="onetime-form"><input type="email" class="c-input" placeholder="your@email.com" id="onetime-email"><button class="btn-o" style="border-color:rgba(201,169,110,0.3);color:rgba(201,169,110,0.6);" onclick="handleSubmit('onetime')">Reserve — One-Time Box</button></div>
+        <div class="success-msg" id="onetime-success">Your box is reserved.</div>
       </div>
-      <div class="success-message" id="reservation-success">You're in the first circle.</div>
-      <p class="card-fine-print">Limited to 200 founding customers · Your spot is held</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Mirabae</div>
-  <div class="footer-tagline">The future of beauty is neural.</div>
-  <div class="footer-copy">© 2026 Mirabae. All rights reserved.</div>
+  <div class="f-logo">Mirabae</div>
+  <div class="f-tag">The future of beauty is neural.</div>
+  <div class="f-copy">© 2026 Mirabae. All rights reserved.</div>
 </footer>
 
 <script>
-  // Sticky nav shadow on scroll
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>100));
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement,wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
   });
-
-  // Klaviyo List IDs
-  const KLAVIYO_LISTS = {
-    waitlist:    'TGRgd4',
-    reservation: 'SpnqH8'
-  };
-
-  async function handleSubmit(type) {
-    const emailInput = document.getElementById(type + '-email');
-    const form       = document.getElementById(type + '-form');
-    const success    = document.getElementById(type + '-success');
-    const btn        = form.querySelector('button');
-
-    // Basic validation
-    if (!emailInput.value || !emailInput.value.includes('@')) {
-      emailInput.style.borderBottomColor = '#C0392B';
-      setTimeout(() => emailInput.style.borderBottomColor = '', 1500);
-      return;
-    }
-
-    // Loading state
-    btn.textContent = 'Submitting…';
-    btn.disabled = true;
-
-    try {
-      const formData = new FormData();
-      formData.append('g', KLAVIYO_LISTS[type]);
-      formData.append('email', emailInput.value.trim());
-
-      if (type === 'reservation') {
-        formData.append('$fields', '$consent,reservation,reserved_at');
-        formData.append('reservation', 'true');
-        formData.append('reserved_at', new Date().toISOString());
-      }
-
-      const response = await fetch('https://manage.kmail-lists.com/ajax/subscriptions/subscribe', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      const data = await response.json();
-
-      if (data.success || data.data) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        throw new Error('Subscription failed');
-      }
-    } catch (err) {
-      btn.textContent = type === 'reservation' ? 'Reserve — Pay at Launch' : 'Join the Waitlist';
-      btn.disabled = false;
-      emailInput.style.borderBottomColor = '#C0392B';
-      emailInput.placeholder = 'Something went wrong — try again';
-      setTimeout(() => {
-        emailInput.style.borderBottomColor = '';
-        emailInput.placeholder = 'Your email address';
-      }, 3000);
-    }
+});
+const LISTS={waitlist:'TGRgd4',reservation:'SpnqH8',onetime:'SpnqH8'};
+async function handleSubmit(type){
+  const email=document.getElementById(type+'-email');
+  const form=document.getElementById(type+'-form');
+  const success=document.getElementById(type+'-success');
+  const btn=form.querySelector('button');
+  if(!email.value||!email.value.includes('@')){email.style.borderBottomColor='#C0392B';setTimeout(()=>email.style.borderBottomColor='',1500);return;}
+  btn.textContent='Submitting…';btn.disabled=true;
+  try{
+    const fd=new FormData();
+    fd.append('g',LISTS[type]);fd.append('email',email.value.trim());
+    if(type!=='waitlist'){fd.append('$fields','reservation,reserved_at,plan');fd.append('reservation','true');fd.append('reserved_at',new Date().toISOString());fd.append('plan',type==='reservation'?'subscribe-save':'one-time');}
+    const res=await fetch('https://manage.kmail-lists.com/ajax/subscriptions/subscribe',{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+    const data=await res.json();
+    if(data.success||data.data){form.style.display='none';success.style.display='block';}else throw new Error();
+  }catch{
+    btn.textContent=type==='waitlist'?'Join the Waitlist':type==='reservation'?'Reserve — Subscribe & Save':'Reserve — One-Time Box';
+    btn.disabled=false;email.style.borderBottomColor='#C0392B';setTimeout(()=>email.style.borderBottomColor='',2000);
   }
-
-  // Allow Enter key on inputs
-  document.querySelectorAll('.card-input').forEach(input => {
-    input.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        const type = input.id.replace('-email', '');
-        handleSubmit(type);
-      }
-    });
-  });
+}
+document.querySelectorAll('.c-input').forEach(i=>i.addEventListener('keypress',e=>{if(e.key==='Enter')handleSubmit(i.id.replace('-email',''));}));
 </script>
 </body>
 </html>
