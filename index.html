@@ -704,17 +704,13 @@ async function handleSubmit(event, type) {
   const email = document.getElementById(emailId).value.trim();
   if (!email) return;
 
-  const properties = {};
+  const customProperties = {};
   if (type === 'subscribe') {
-    properties['reservation_type'] = 'subscribe_and_save';
-    properties['reservation'] = true;
-    properties['$source'] = 'Anima Pre-Launch';
+    customProperties['reservation_type'] = 'subscribe_and_save';
+    customProperties['reservation'] = 'true';
   } else if (type === 'onetime') {
-    properties['reservation_type'] = 'one_time';
-    properties['reservation'] = true;
-    properties['$source'] = 'Anima Pre-Launch';
-  } else {
-    properties['$source'] = 'Anima Waitlist';
+    customProperties['reservation_type'] = 'one_time';
+    customProperties['reservation'] = 'true';
   }
 
   try {
@@ -729,8 +725,16 @@ async function handleSubmit(event, type) {
           type: 'subscription',
           attributes: {
             list_id: LISTS[type],
-            email: email,
-            properties: properties
+            custom_source: type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch',
+            profile: {
+              data: {
+                type: 'profile',
+                attributes: {
+                  email: email,
+                  properties: customProperties
+                }
+              }
+            }
           }
         }
       })
