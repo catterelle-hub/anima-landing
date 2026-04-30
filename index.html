@@ -689,6 +689,7 @@ function toggleFaq(btn) {
 }
 
 // Klaviyo form submission
+const KLAVIYO_KEY = 'RfxPHh';
 const LISTS = {
   waitlist: 'TGRgd4',
   subscribe: 'SpnqH8',
@@ -703,29 +704,36 @@ async function handleSubmit(event, type) {
   const email = document.getElementById(emailId).value.trim();
   if (!email) return;
 
+  const properties = {};
+  if (type === 'subscribe') {
+    properties['reservation_type'] = 'subscribe_and_save';
+    properties['reservation'] = true;
+    properties['$source'] = 'Anima Pre-Launch';
+  } else if (type === 'onetime') {
+    properties['reservation_type'] = 'one_time';
+    properties['reservation'] = true;
+    properties['$source'] = 'Anima Pre-Launch';
+  } else {
+    properties['$source'] = 'Anima Waitlist';
+  }
+
   try {
-    const fd = new FormData();
-    fd.append('g', LISTS[type]);
-    fd.append('email', email);
-    if (type === 'subscribe') {
-      fd.append('$fields', '$source,reservation_type,reservation');
-      fd.append('$source', 'Anima Pre-Launch');
-      fd.append('reservation_type', 'subscribe_and_save');
-      fd.append('reservation', 'true');
-    } else if (type === 'onetime') {
-      fd.append('$fields', '$source,reservation_type,reservation');
-      fd.append('$source', 'Anima Pre-Launch');
-      fd.append('reservation_type', 'one_time');
-      fd.append('reservation', 'true');
-    } else {
-      fd.append('$fields', '$source');
-      fd.append('$source', 'Anima Waitlist');
-    }
-    await fetch('https://manage.kmail-lists.com/ajax/subscriptions/subscribe', {
+    await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
       method: 'POST',
-      body: fd,
-      headers: { 'Accept': 'application/json' },
-      mode: 'no-cors'
+      headers: {
+        'Content-Type': 'application/json',
+        'revision': '2023-12-15'
+      },
+      body: JSON.stringify({
+        data: {
+          type: 'subscription',
+          attributes: {
+            list_id: LISTS[type],
+            email: email,
+            properties: properties
+          }
+        }
+      })
     });
   } catch(e) {}
 
