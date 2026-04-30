@@ -711,7 +711,8 @@ async function handleSubmit(event, type) {
       body: JSON.stringify({
         email: email,
         listId: LISTS[type],
-        source: type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch'
+        source: type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch',
+        reservationType: type === 'subscribe' ? 'Subscribe and Save – $69/mo' : type === 'onetime' ? 'One-Time – $97' : 'Waitlist'
       })
     });
   } catch(e) {}
