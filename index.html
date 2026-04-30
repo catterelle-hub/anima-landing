@@ -704,17 +704,8 @@ async function handleSubmit(event, type) {
   const email = document.getElementById(emailId).value.trim();
   if (!email) return;
 
-  const customProperties = {};
-  if (type === 'subscribe') {
-    customProperties['reservation_type'] = 'subscribe_and_save';
-    customProperties['reservation'] = 'true';
-  } else if (type === 'onetime') {
-    customProperties['reservation_type'] = 'one_time';
-    customProperties['reservation'] = 'true';
-  }
-
   try {
-    await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
+    const res = await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -725,21 +716,16 @@ async function handleSubmit(event, type) {
           type: 'subscription',
           attributes: {
             list_id: LISTS[type],
-            custom_source: type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch',
-            profile: {
-              data: {
-                type: 'profile',
-                attributes: {
-                  email: email,
-                  properties: customProperties
-                }
-              }
-            }
+            email: email,
+            custom_source: type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch'
           }
         }
       })
     });
-  } catch(e) {}
+    console.log('Klaviyo status:', res.status);
+  } catch(e) {
+    console.error('Klaviyo error:', e);
+  }
 
   document.getElementById(formId).style.display = 'none';
   document.getElementById(successId).style.display = 'block';
