@@ -705,27 +705,17 @@ async function handleSubmit(event, type) {
   if (!email) return;
 
   try {
-    const res = await fetch('https://a.klaviyo.com/client/subscriptions/?company_id=' + KLAVIYO_KEY, {
+    const fd = new FormData();
+    fd.append('g', LISTS[type]);
+    fd.append('email', email);
+    fd.append('$fields', '$source');
+    fd.append('$source', type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch');
+    await fetch('https://manage.kmail-lists.com/ajax/subscriptions/subscribe', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'revision': '2023-12-15'
-      },
-      body: JSON.stringify({
-        data: {
-          type: 'subscription',
-          attributes: {
-            list_id: LISTS[type],
-            email: email,
-            custom_source: type === 'waitlist' ? 'Anima Waitlist' : 'Anima Pre-Launch'
-          }
-        }
-      })
+      body: fd,
+      mode: 'no-cors'
     });
-    console.log('Klaviyo status:', res.status);
-  } catch(e) {
-    console.error('Klaviyo error:', e);
-  }
+  } catch(e) {}
 
   document.getElementById(formId).style.display = 'none';
   document.getElementById(successId).style.display = 'block';
