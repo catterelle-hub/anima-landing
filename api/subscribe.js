@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { email, listId, source } = req.body;
+  const { email, listId } = req.body;
   if (!email || !listId) return res.status(400).json({ error: 'Missing fields' });
 
   const PRIVATE_KEY = process.env.KLAVIYO_PRIVATE_KEY;
@@ -28,21 +28,31 @@ export default async function handler(req, res) {
                 type: 'profile',
                 attributes: {
                   email: email,
-                  properties: { source: source }
+                  subscriptions: {
+                    email: {
+                      marketing: {
+                        consent: 'SUBSCRIBED'
+                      }
+                    }
+                  }
                 }
               }]
             }
           },
           relationships: {
             list: {
-              data: { type: 'list', id: listId }
+              data: {
+                type: 'list',
+                id: listId
+              }
             }
           }
         }
       })
     });
 
-    return res.status(200).json({ success: true, status: response.status });
+    const text = await response.text();
+    return res.status(200).json({ success: true, status: response.status, body: text });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
