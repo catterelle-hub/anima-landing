@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/((?!api/).*)", "destination": "https://links.mirabae.com/lab", "permanent": false }
+  ]
+}
